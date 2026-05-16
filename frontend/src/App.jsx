@@ -1,37 +1,46 @@
-
-import React , {useState} from "react";
-
-function App(){
-  const [count,setCount] = useState(0);
-  const [isDark,setIsDark]=useState(false);
-  const [name,setName]=useState("");
-
+function App() {
   return (
-    <div style={{
-      backgroundColor:isDark?'#2c3e50':'#ffffff' ,
-      color:isDark?'#ffffff':'#000000' ,
-      padding:'20px',
-      transition:'all 0.5s ease'
-      , border: 'solid 1px red'
-     }} >
-      <h1>current count is {count} </h1>
-      <button onClick={()=> setCount(count+1)}> click me increase count : {count}</button>
-      <button onClick={()=> setCount(count-1)}> click me decrease  count : {count}</button>
-      <button onClick={()=> setCount(0)}>  reset</button>
-<label>
-  <input type="checkbox" checked={isDark} onChange={(e)=> setIsDark(e.target.checked )}/>
-  dark mode
-</label>
+    <main className="page-shell">
+      <section className="signup-card">
+        <div className="form-header">
+          <p className="form-kicker">Central Library Ratlam</p>
+          <h1>Student Signup</h1>
+          <p>
+            Create your account to join Study Hub and continue your learning
+            journey.
+          </p>
+        </div>
 
-<input
- type="text" value={name} 
- placeholder="enter your name"
- onChange={(e)=> setName(e.target.value)}
- />
-      
+        <form className="signup-form">
+          <label htmlFor="name">Full name</label>
+          <input id="name" type="text" placeholder="Enter your full name" />
 
+          <label htmlFor="email">Email address</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="Enter your email address"
+          />
 
-    </div>
+          <label htmlFor="mobile">Mobile number</label>
+          <input
+            id="mobile"
+            type="tel"
+            placeholder="Enter your mobile number"
+          />
+
+          <label htmlFor="password">Create password</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Create a secure password"
+          />
+
+          <button type="submit">Create account</button>
+        </form>
+      </section>
+    </main>
   );
 }
+
 export default App;
