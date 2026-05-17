@@ -20,6 +20,24 @@ function App() {
           placeholder="enter name here "
           type="text" />
 
+           <Input 
+          label="mobile"
+          id="mobile"
+          placeholder="enter mobile no  here "
+          type="number" />
+
+           <Input 
+          label="email"
+          id="email"
+          placeholder="enter email here "
+          type="email" />
+
+           <Input 
+          label="password"
+          id="password"
+          placeholder="create password here "
+          type="password" />
+
           <button type="submit">Create account</button>
         </form>
       </section>
