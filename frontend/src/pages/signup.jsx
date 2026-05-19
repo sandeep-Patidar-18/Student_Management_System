@@ -1,4 +1,7 @@
 
+import Input from "../components/input";
+import Button from "../components/Button";
+
 function SignUp(){
     return(
         <>
@@ -13,32 +16,32 @@ function SignUp(){
           </p>
         </div>
 
-        <form className="signup-form">
+        <form className="auth-form">
           <Input 
-          label="name"
+          label="Name"
           id="name"
-          placeholder="enter name here "
+          placeholder="Enter name here"
           type="text" />
 
            <Input 
-          label="mobile"
+          label="Mobile"
           id="mobile"
-          placeholder="enter mobile no  here "
+          placeholder="Enter mobile no here"
           type="number" />
 
            <Input 
-          label="email"
+          label="Email"
           id="email"
-          placeholder="enter email here "
+          placeholder="Enter email here"
           type="email" />
 
            <Input 
-          label="password"
+          label="Password"
           id="password"
-          placeholder="create password here "
+          placeholder="Create password here"
           type="password" />
 
-          <button type="submit" name="SignUp"/>
+          <Button type="submit" name="Sign Up" />
         </form>
       </section>
     </main>

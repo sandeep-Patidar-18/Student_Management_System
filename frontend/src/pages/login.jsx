@@ -8,29 +8,29 @@ function InputPage(props) {
         <section className="signup-card">
           <div className="form-header">
             <p className="form-kicker">Central Library Ratlam</p>
-            <h1>Student Signup</h1>
+            <h1>Student Login</h1>
             <p>
-              Create your account to join Study Hub and continue your learning
-              journey.
+              Sign in to continue to your Study Hub account and access your
+              library dashboard.
             </p>
           </div>
 
-          <form className="login-form">
+          <form className="auth-form">
             <Input
-              label="email"
+              label="Email"
               id="email"
-              placeholder="enter email here "
+              placeholder="Enter email here"
               type="email"
             />
 
             <Input
-              label="password"
+              label="Password"
               id="password"
-              placeholder="create password here "
+              placeholder="Enter password here"
               type="password"
             />
 
-            <button type="submit" name="Login" />
+            <Button type="submit" name="Login" />
           </form>
         </section>
       </main>

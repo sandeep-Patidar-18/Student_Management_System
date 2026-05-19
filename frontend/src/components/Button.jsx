@@ -1,16 +1,5 @@
-
-function Button(props){
-    return(
-        <>
-        <Button 
-        type={props.type}
-
-        >
-            {props.name}
-
-        </Button>
-        </>
-    );
+function Button(props) {
+  return <button type={props.type}>{props.name}</button>;
 }
 
 export default Button;
