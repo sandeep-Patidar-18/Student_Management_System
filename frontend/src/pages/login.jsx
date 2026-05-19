@@ -1,3 +1,6 @@
+import Input from "../components/input";
+import Button from "../components/Button";
+
 function InputPage(props) {
   return (
     <>
@@ -34,3 +37,5 @@ function InputPage(props) {
     </>
   );
 }
+
+export default InputPage;
