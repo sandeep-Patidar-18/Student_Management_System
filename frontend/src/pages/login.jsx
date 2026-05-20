@@ -1,5 +1,6 @@
 import Input from "../components/input";
 import Button from "../components/Button";
+import SignUp from "./signup";
 
 function InputPage(props) {
   return (
@@ -32,6 +33,11 @@ function InputPage(props) {
 
             <Button type="submit" name="Login" />
           </form>
+          <div>
+            <p>
+              Create a new account  <Link to="/SignUp">SignUp</Link>
+            </p>
+          </div>
         </section>
       </main>
     </>
