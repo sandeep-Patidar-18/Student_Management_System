@@ -1,22 +1,37 @@
 import Input from "../components/input";
 import Button from "../components/Button";
-import SignUp from "./signup";
+import { Link } from "react-router-dom";
+import axios from "axios"
 
-function InputPage(props) {
+function SignUpPage() {
   return (
     <>
       <main className="page-shell">
         <section className="signup-card">
           <div className="form-header">
             <p className="form-kicker">Central Library Ratlam</p>
-            <h1>Student Login</h1>
+            <h1>Student Signup</h1>
             <p>
-              Sign in to continue to your Study Hub account and access your
-              library dashboard.
+              Create your account to join Study Hub and continue your learning
+              journey.
             </p>
           </div>
 
           <form className="auth-form">
+            <Input
+              label="Name"
+              id="name"
+              placeholder="Enter name here"
+              type="text"
+            />
+
+            <Input
+              label="Mobile"
+              id="mobile"
+              placeholder="Enter mobile no here"
+              type="number"
+            />
+
             <Input
               label="Email"
               id="email"
@@ -27,15 +42,15 @@ function InputPage(props) {
             <Input
               label="Password"
               id="password"
-              placeholder="Enter password here"
+              placeholder="Create password here"
               type="password"
             />
 
-            <Button type="submit" name="Login" />
+            <Button type="submit" name="Sign Up" />
           </form>
           <div>
             <p>
-              Create a new account  <Link to="/SignUp">SignUp</Link>
+              Already have an account? <Link to="/login">Login here</Link>
             </p>
           </div>
         </section>
@@ -44,4 +59,4 @@ function InputPage(props) {
   );
 }
 
-export default InputPage;
+export default SignUpPage;

@@ -2,35 +2,21 @@ import Input from "../components/input";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
 
-function SignUp() {
+function LoginPage() {
   return (
     <>
       <main className="page-shell">
         <section className="signup-card">
           <div className="form-header">
             <p className="form-kicker">Central Library Ratlam</p>
-            <h1>Student Signup</h1>
+            <h1>Student Login</h1>
             <p>
-              Create your account to join Study Hub and continue your learning
-              journey.
+              Sign in to continue to your Study Hub account and access your
+              library dashboard.
             </p>
           </div>
 
           <form className="auth-form">
-            <Input
-              label="Name"
-              id="name"
-              placeholder="Enter name here"
-              type="text"
-            />
-
-            <Input
-              label="Mobile"
-              id="mobile"
-              placeholder="Enter mobile no here"
-              type="number"
-            />
-
             <Input
               label="Email"
               id="email"
@@ -41,15 +27,15 @@ function SignUp() {
             <Input
               label="Password"
               id="password"
-              placeholder="Create password here"
+              placeholder="Enter password here"
               type="password"
             />
 
-            <Button type="submit" name="Sign Up" />
+            <Button type="submit" name="Login" />
           </form>
           <div>
             <p>
-              Already have an account? <Link to="/login">Login here</Link>
+              Create a new account <Link to="/signup">SignUp</Link>
             </p>
           </div>
         </section>
@@ -58,4 +44,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default LoginPage;
