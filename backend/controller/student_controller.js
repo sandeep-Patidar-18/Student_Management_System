@@ -1,131 +1,90 @@
-const Student=require("../models/Student");
+import Student from "../models/students.js";
 
+export const createStudent = async (req, res) => {
+  try {
+    const student = new Student(req.body);
+    await student.save();
 
-exports.createStudent=async(req,res)=>{
-
-    try{
-
-        const student=new Student(req.body);
-
-        await student.save();
-
-        res.json({
-            message:"student added successfully",
-            student
-        });
-
-    }
-
-    catch(e){
-
-        res.status(500).json({
-            message:e.message
-        });
-
-    }
-
+    res.status(201).json({
+      message: "Student added successfully",
+      student,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
 };
 
-
-
-exports.getStudents=async(req,res)=>{
-
-    try{
-
-        const students=await Student.find();
-
-        res.json(students);
-
-    }
-
-    catch(e){
-
-        res.json({
-            message:e.message
-        });
-
-    }
-
+export const getStudents = async (_req, res) => {
+  try {
+    const students = await Student.find().sort({ createdAt: -1 });
+    res.json(students);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
 };
 
+export const getStudentById = async (req, res) => {
+  try {
+    const student = await Student.findById(req.params.id);
 
-
-exports.getStudentById=async(req,res)=>{
-
-    try{
-
-        const student=await Student.findById(
-            req.params.id
-        );
-
-        res.json(student);
-
+    if (!student) {
+      return res.status(404).json({
+        message: "Student not found",
+      });
     }
 
-    catch(e){
-
-        res.json({
-            message:e.message
-        });
-
-    }
-
+    return res.json(student);
+  } catch (error) {
+    return res.status(500).json({
+      message: error.message,
+    });
+  }
 };
 
+export const updateStudent = async (req, res) => {
+  try {
+    const student = await Student.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
 
-
-exports.updateStudent=async(req,res)=>{
-
-    try{
-
-        const student=
-        await Student.findByIdAndUpdate(
-
-            req.params.id,
-            req.body,
-            {new:true}
-
-        );
-
-        res.json({
-            message:"student updated",
-            student
-        });
-
+    if (!student) {
+      return res.status(404).json({
+        message: "Student not found",
+      });
     }
 
-    catch(e){
-
-        res.json({
-            message:e.message
-        });
-
-    }
-
+    return res.json({
+      message: "Student updated",
+      student,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: error.message,
+    });
+  }
 };
 
+export const deleteStudent = async (req, res) => {
+  try {
+    const student = await Student.findByIdAndDelete(req.params.id);
 
-
-exports.deleteStudent=async(req,res)=>{
-
-    try{
-
-        await Student.findByIdAndDelete(
-            req.params.id
-        );
-
-        res.json({
-            message:"student deleted"
-        });
-
+    if (!student) {
+      return res.status(404).json({
+        message: "Student not found",
+      });
     }
 
-    catch(e){
-
-        res.json({
-            message:e.message
-        });
-
-    }
-
+    return res.json({
+      message: "Student deleted",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: error.message,
+    });
+  }
 };

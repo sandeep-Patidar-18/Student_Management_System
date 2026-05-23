@@ -1,35 +1,18 @@
-const express=require("express");
+import express from "express";
+import {
+  createStudent,
+  deleteStudent,
+  getStudentById,
+  getStudents,
+  updateStudent,
+} from "../controller/student_controller.js";
 
-const router=express.Router();
+const router = express.Router();
 
-const studentController=
-require("../controller/student_controller");
+router.post("/students", createStudent);
+router.get("/students", getStudents);
+router.get("/students/:id", getStudentById);
+router.put("/students/:id", updateStudent);
+router.delete("/students/:id", deleteStudent);
 
-
-router.post(
-"/students",
-studentController.createStudent
-);
-
-router.get(
-"/students",
-studentController.getStudents
-);
-
-router.get(
-"/students/:id",
-studentController.getStudentById
-);
-
-router.put(
-"/students/:id",
-studentController.updateStudent
-);
-
-router.delete(
-"/students/:id",
-studentController.deleteStudent
-);
-
-
-module.exports=router;
+export default router;

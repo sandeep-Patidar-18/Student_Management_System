@@ -1,7 +1,6 @@
 import Input from "../components/input";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
-import axios from "axios"
 
 function SignUpPage() {
   return (
