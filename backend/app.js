@@ -1,7 +1,8 @@
 import express from "express";
 import cors from "cors";
 import connectDB from "./DB.js";
-import studentRoutes from "./routes/students_routes.js";
+import customerRoutes from "./routes/customers_routes.js";
+import accountRoutes from "./routes/accounts_routes.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -12,16 +13,17 @@ app.use(express.json());
 
 app.get("/", (_req, res) => {
   res.json({
-    message: "Student management API is running",
+    message: "Bank management API is running",
   });
 });
 
-app.use("/api", studentRoutes);
+app.use("/api/customers", customerRoutes);
+app.use("/api/accounts", accountRoutes);
 
-app.post("/signup", (req, res) => {
+app.post("/api/auth/signup", (req, res) => {
   res.status(201).json({
-    message: "Signup route is working",
-    user: req.body,
+    message: "Bank customer signup route is working",
+    customer: req.body,
   });
 });
 

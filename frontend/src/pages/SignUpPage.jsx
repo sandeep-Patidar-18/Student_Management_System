@@ -1,55 +1,111 @@
 import Input from "../components/input";
 import Button from "../components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function SignUpPage() {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    fullName: "",
+    phone: "",
+    email: "",
+    password: "",
+    accountType: "",
+    branch: "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((currentData) => ({
+      ...currentData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    navigate("/dashboard");
+  };
+
   return (
     <>
       <main className="page-shell">
         <section className="signup-card">
           <div className="form-header">
-            <p className="form-kicker">Central Library Ratlam</p>
-            <h1>Student Signup</h1>
+            <p className="form-kicker">TrustWave Bank</p>
+            <h1>Customer Registration</h1>
             <p>
-              Create your account to join Study Hub and continue your learning
-              journey.
+              Bank employees can register a customer profile and continue
+              directly into the account management dashboard.
             </p>
           </div>
 
-          <form className="auth-form">
+          <form className="auth-form" onSubmit={handleSubmit}>
             <Input
-              label="Name"
-              id="name"
-              placeholder="Enter name here"
+              label="Full name"
+              id="fullName"
+              placeholder="Enter full name"
               type="text"
+              value={formData.fullName}
+              onChange={handleChange}
+              required
             />
 
             <Input
-              label="Mobile"
-              id="mobile"
-              placeholder="Enter mobile no here"
-              type="number"
+              label="Phone number"
+              id="phone"
+              placeholder="Enter phone number"
+              type="tel"
+              value={formData.phone}
+              onChange={handleChange}
+              required
             />
 
             <Input
               label="Email"
               id="email"
-              placeholder="Enter email here"
+              placeholder="Enter email address"
               type="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
             />
 
             <Input
               label="Password"
               id="password"
-              placeholder="Create password here"
+              placeholder="Create secure password"
               type="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
             />
 
-            <Button type="submit" name="Sign Up" />
+            <Input
+              label="Account type"
+              id="accountType"
+              placeholder="Savings or current"
+              type="text"
+              value={formData.accountType}
+              onChange={handleChange}
+              required
+            />
+
+            <Input
+              label="Branch"
+              id="branch"
+              placeholder="Enter branch name"
+              type="text"
+              value={formData.branch}
+              onChange={handleChange}
+              required
+            />
+
+            <Button type="submit" name="Create Account" />
           </form>
           <div>
             <p>
-              Already have an account? <Link to="/login">Login here</Link>
+              Already registered? <Link to="/login">Log in here</Link>
             </p>
           </div>
         </section>

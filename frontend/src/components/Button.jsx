@@ -1,5 +1,20 @@
-function Button(props) {
-  return <button type={props.type}>{props.name}</button>;
+function Button({
+  type = "button",
+  name,
+  className = "",
+  onClick,
+  disabled = false,
+}) {
+  return (
+    <button
+      type={type}
+      className={className}
+      onClick={onClick}
+      disabled={disabled}
+    >
+      {name}
+    </button>
+  );
 }
 
 export default Button;

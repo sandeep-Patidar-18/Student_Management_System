@@ -1,7 +1,7 @@
 {
-  "name": "student_management",
+  "name": "bank_management_system",
   "version": "1.0.0",
-  "description": "A full-stack MERN application to add, update, delete, and manage student records using MongoDB, Express, React, and Node.js.",
+  "description": "A full-stack MERN application to register, view, update, and manage bank customer records using MongoDB, Express, React, and Node.js.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
